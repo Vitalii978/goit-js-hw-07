@@ -1,32 +1,9 @@
-class StringBuilder {
-  #value;
-constructor(value) {
-  this.#value = value;
-}
 
-getValue() {
-  return this.#value;
-}
-
-padEnd(str) {
-  this.#value = `${this.#value}${str}`;
-}
-
-padStart(str) {
-    this.#value = `${str}${this.#value}`;
-}
-
-padBoth(str) {
-    this.#value = `${str}${this.#value}${str}`;
-}
-}
+const inputEl = document.querySelector('#name-input');
+const outputEl = document.querySelector('#name-output');
 
 
-const builder = new StringBuilder(".");
-console.log(builder.getValue()); // "."
-builder.padStart("^");
-console.log(builder.getValue()); // "^."
-builder.padEnd("^");
-console.log(builder.getValue()); // "^.^"
-builder.padBoth("=");
-console.log(builder.getValue()); // "=^.^="
+inputEl.addEventListener('input', () => {
+  const trimmedValue = inputEl.value.trim();
+  outputEl.textContent = trimmedValue === '' ? 'Anonymous' : trimmedValue;
+});
